@@ -1,0 +1,107 @@
+
+body{
+    background-image : linear-gradient(to right, gray, white);
+    background-size: a;
+}
+
+
+.title{
+    transform: translate(-0%,-200%);
+}
+
+.box-1{
+    display: flex;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 150px;
+    padding: 1px;
+    height: 50px;
+    background-color: white;
+    
+    
+    transform: translate(300%,220%);
+}
+
+.line-1{
+    height: 1px;
+    background: blue;
+    
+}
+
+.login{
+
+   width: 300px;
+   padding: 20px;
+   transform: translate(-8%,30px);
+   background-color: #04AA6D;
+   box-shadow: 0 9px #999;
+   border-radius: 10px;
+   border-width: 1px;
+   font-size: 20px;
+   color:white;
+   cursor:grab;
+
+}
+
+.sign-up-button{
+    font-size: 12px;
+    transform: translate(49%,-600%);
+}
+.no-account{
+    transform: translate(35%,-300%);
+}
+
+.login:hover{
+    background-color: #3e8e41;
+
+}
+
+.login:active{
+    background-color: blue;
+    box-shadow: 0 5px #666;
+  
+}
+
+.container{
+    display: flex;
+    margin-top: 100px;
+    margin-left: 450px;
+    margin-right: 450px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 100px;
+    border: 1px solid black;
+    flex-direction: column;
+}
+
+.inputUser{
+    display:flex;
+    
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    position: center;
+    transform: translate(-10%,-100%);
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .title{
+        transform: translate(-50%,-390%);
+    }
+
+    .container{
+        
+        background-color: white;
+        border-radius: 10px;
+        padding: 150px;
+        
+        border: 1px solid gray;
+        transform: translate(-142%,10%);
+    }
+}
+
+
+
