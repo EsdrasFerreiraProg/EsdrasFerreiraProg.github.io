@@ -32,7 +32,7 @@ body{
 
    width: 300px;
    padding: 20px;
-   transform: translate(-8%,30px);
+   transform: translate(100%,30px);
    background-color: #04AA6D;
    box-shadow: 0 9px #999;
    border-radius: 10px;
@@ -45,10 +45,10 @@ body{
 
 .sign-up-button{
     font-size: 12px;
-    transform: translate(49%,-600%);
+    transform: translate(40.2%,-680%);
 }
 .no-account{
-    transform: translate(35%,-300%);
+    transform: translate(29%,-300%);
 }
 
 .login:hover{
@@ -80,27 +80,60 @@ body{
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-    width: 300px;
+    width: 600px;
     position: center;
-    transform: translate(-10%,-100%);
+    transform: translate(-5%,-100%);
 }
 
 
 
 @media screen and (max-width: 600px) {
-    .title{
-        transform: translate(-50%,-390%);
+    body{
+        background-image: linear-gradient(to right, blue, white);
+    }
+    
+    .container{
+        transform: translate(-148%,-25%);
+        width: 80px;
+        margin-right: 0px;
+        
     }
 
-    .container{
-        
-        background-color: white;
-        border-radius: 10px;
-        padding: 150px;
-        
-        border: 1px solid gray;
-        transform: translate(-142%,10%);
+    .inputUser{
+        transform: translate(-25%,-80%);
+        width: 160px;
     }
+    .login{
+        padding: 10px;
+        width: 140px;
+        transform: translate(-21%,90%);
+    }
+
+    .box-1{
+        position: relative;
+        transform: translate(60%,60%);
+        z-index: 1;
+    }
+
+    .no-account{
+        transform: translate(15%,-120px);
+        font-size: 10px;
+        margin-right: 100px;
+    }
+    .sign-up-button{
+        transform: translate(100%,-147px);
+        font-size: 10px;
+        
+        margin-right: 170px;
+    }
+
+    .title{
+        transform: translate(35%,0%);
+        font-size: 18px;
+
+        margin-right: 5000px;
+    }
+
 }
 
 
