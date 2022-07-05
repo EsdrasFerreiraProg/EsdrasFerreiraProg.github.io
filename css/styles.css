@@ -17,10 +17,10 @@ body{
     width: 150px;
     padding: 1px;
     height: 50px;
-    background-color: white;
+    background-color: black;
     
     
-    transform: translate(300%,220%);
+    transform: translate(300%,150%);
 }
 
 .line-1{
@@ -52,16 +52,6 @@ body{
     transform: translate(29%,-300%);
 }
 
-.login:hover{
-    background-color: #3e8e41;
-
-}
-
-.login:active{
-    background-color: blue;
-    box-shadow: 0 5px #666;
-  
-}
 
 .container{
     display: flex;
