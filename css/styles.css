@@ -1,12 +1,13 @@
 
 body{
     background-image : linear-gradient(to right, gray, white);
-    background-size: a;
+    
 }
 
 
 .title{
     transform: translate(-0%,-200%);
+    margin-right: 400px;
 }
 
 .box-1{
@@ -17,14 +18,15 @@ body{
     padding: 1px;
     height: 50px;
     background-color: white;
-    
-    
+    margin-right: 200px;
     transform: translate(300%,220%);
 }
 
 .line-1{
     height: 1px;
     background: blue;
+    margin-right: 190px;
+    margin-left: 150px;
     
 }
 
@@ -32,7 +34,7 @@ body{
 
    width: 300px;
    padding: 20px;
-   transform: translate(100%,30px);
+   transform: translate(42%,30px);
    background-color: #04AA6D;
    box-shadow: 0 9px #999;
    border-radius: 10px;
@@ -40,25 +42,29 @@ body{
    font-size: 20px;
    color:white;
    cursor:grab;
-
+   margin-right: 300px;
 }
 
 .sign-up-button{
     font-size: 12px;
-    transform: translate(40.2%,-680%);
+    transform: translate(66%,-690%);
+    margin-right: 700px;
 }
 .no-account{
-    transform: translate(29%,-300%);
+    transform: translate(47%,-300%);
+    margin-right: 700px;
 }
 
 .login:hover{
     background-color: #3e8e41;
+    
 
 }
 
 .login:active{
     background-color: blue;
     box-shadow: 0 5px #666;
+    
   
 }
 
@@ -76,7 +82,7 @@ body{
 
 .inputUser{
     display:flex;
-    
+    margin-right: 180px;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
@@ -84,7 +90,6 @@ body{
     position: center;
     transform: translate(-5%,-100%);
 }
-
 
 
 @media screen and (max-width: 600px) {
@@ -131,7 +136,7 @@ body{
         transform: translate(35%,0%);
         font-size: 18px;
 
-        margin-right: 5000px;
+        
     }
 
 }
