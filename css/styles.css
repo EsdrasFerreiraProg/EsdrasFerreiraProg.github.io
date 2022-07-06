@@ -1,13 +1,14 @@
 
 body{
-    background-image : linear-gradient(to right, gray, white);
-    
+    background-image : url("https://wallpapercave.com/wp/wp2767312.jpg");
+    background-size:cover;
 }
 
 
 .title{
     transform: translate(-0%,-200%);
     margin-right: 400px;
+    
 }
 
 .box-1{
@@ -23,18 +24,16 @@ body{
 }
 
 .line-1{
+
     height: 1px;
     background: blue;
-    margin-right: 190px;
-    margin-left: 150px;
-    
 }
 
 .login{
 
    width: 300px;
    padding: 20px;
-   transform: translate(42%,30px);
+   transform: translate(-5%,30px);
    background-color: #04AA6D;
    box-shadow: 0 9px #999;
    border-radius: 10px;
@@ -42,17 +41,20 @@ body{
    font-size: 20px;
    color:white;
    cursor:grab;
-   margin-right: 300px;
+  
 }
 
 .sign-up-button{
     font-size: 12px;
-    transform: translate(66%,-690%);
+    transform: translate(102%,-550%);
     margin-right: 700px;
 }
 .no-account{
-    transform: translate(47%,-300%);
+    transform: translate(191%,-250%);
     margin-right: 700px;
+    color:black;
+    background-color: #04AA6D;
+    margin-right: 1100px;
 }
 
 .login:hover{
@@ -73,7 +75,7 @@ body{
     margin-top: 100px;
     margin-left: 450px;
     margin-right: 450px;
-    background-color: white;
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/876/822/474/animal-kingdom-dwellers-of-the-jungle-desktop-backgrounds-free-download-for-windows-wallpaper-preview.jpg");
     border-radius: 10px;
     padding: 100px;
     border: 1px solid black;
@@ -86,15 +88,15 @@ body{
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-    width: 600px;
+    width: 300px;
     position: center;
-    transform: translate(-5%,-100%);
+    transform: translate(-10%,-100%);
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
     body{
-        background-image: linear-gradient(to right, blue, white);
+        background-image: white;
     }
     
     .container{
@@ -126,7 +128,7 @@ body{
         margin-right: 100px;
     }
     .sign-up-button{
-        transform: translate(100%,-147px);
+        transform: translate(100%,-145px);
         font-size: 10px;
         
         margin-right: 170px;
