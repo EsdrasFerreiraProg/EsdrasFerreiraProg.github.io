@@ -1,0 +1,145 @@
+
+body{
+    background-image : linear-gradient(to right, gray, white);
+    
+}
+
+
+.title{
+    transform: translate(-0%,-200%);
+    margin-right: 400px;
+}
+
+.box-1{
+    display: flex;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 150px;
+    padding: 1px;
+    height: 50px;
+    background-color: white;
+    margin-right: 200px;
+    transform: translate(300%,220%);
+}
+
+.line-1{
+    height: 1px;
+    background: blue;
+    margin-right: 190px;
+    margin-left: 150px;
+    
+}
+
+.login{
+
+   width: 300px;
+   padding: 20px;
+   transform: translate(42%,30px);
+   background-color: #04AA6D;
+   box-shadow: 0 9px #999;
+   border-radius: 10px;
+   border-width: 1px;
+   font-size: 20px;
+   color:white;
+   cursor:grab;
+   margin-right: 300px;
+}
+
+.sign-up-button{
+    font-size: 12px;
+    transform: translate(66%,-690%);
+    margin-right: 700px;
+}
+.no-account{
+    transform: translate(47%,-300%);
+    margin-right: 700px;
+}
+
+.login:hover{
+    background-color: #3e8e41;
+    
+
+}
+
+.login:active{
+    background-color: blue;
+    box-shadow: 0 5px #666;
+    
+  
+}
+
+.container{
+    display: flex;
+    margin-top: 100px;
+    margin-left: 450px;
+    margin-right: 450px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 100px;
+    border: 1px solid black;
+    flex-direction: column;
+}
+
+.inputUser{
+    display:flex;
+    margin-right: 180px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    width: 600px;
+    position: center;
+    transform: translate(-5%,-100%);
+}
+
+
+@media screen and (max-width: 600px) {
+    body{
+        background-image: linear-gradient(to right, blue, white);
+    }
+    
+    .container{
+        transform: translate(-148%,-25%);
+        width: 80px;
+        margin-right: 0px;
+        
+    }
+
+    .inputUser{
+        transform: translate(-25%,-80%);
+        width: 160px;
+    }
+    .login{
+        padding: 10px;
+        width: 140px;
+        transform: translate(-21%,90%);
+    }
+
+    .box-1{
+        position: relative;
+        transform: translate(60%,60%);
+        z-index: 1;
+    }
+
+    .no-account{
+        transform: translate(15%,-120px);
+        font-size: 10px;
+        margin-right: 100px;
+    }
+    .sign-up-button{
+        transform: translate(100%,-147px);
+        font-size: 10px;
+        
+        margin-right: 170px;
+    }
+
+    .title{
+        transform: translate(35%,0%);
+        font-size: 18px;
+
+        
+    }
+
+}
+
+
+
