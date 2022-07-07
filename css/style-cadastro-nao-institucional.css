@@ -3,28 +3,32 @@ body{
     background-size: cover;
 }
 
-.form-institute-sign-up{
-
+.form-institute-sign-up-1{
+    
     background-color: white;
     display:flex;
-    margin-left: 500px;
+    margin-left: 580px;
     margin-top: 10px;
-    height: 600px;
+    height: 700px;
     width: 400px;
     align-items: center;
     flex-direction: column;
-    border: 3px solid blue;
+    border: 3px solid red;
     border-radius: 4px;
     
 }
 
+
 .label-input{
-    margin-top: 40px;
+
+    margin-top: 20px;
+    font-size: 20px;
     
 }
 
 .input-user{
     width: 250px;
+    font-size: 15px;
 }
 
 input[type=submit]{
@@ -33,14 +37,15 @@ input[type=submit]{
     border-radius: 5px;
     color: black;
     margin-left: 200px;
+    margin-top: -0px;
     
 }
 
 @media  screen and (max-width: 450px) {
-    .form-institute-sign-up{
-        margin-top: 50px;
+    .form-institute-sign-up-1{
+        margin-top: 30px;
         margin-left: 30px;
-        height: 480px;
+        height: 700px;
         width: 280px;
         
     }

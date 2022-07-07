@@ -4,11 +4,10 @@ body{
 }
 
 .form-institute-sign-up{
-
     background-color: white;
     display:flex;
     margin-left: 500px;
-    margin-top: 10px;
+    margin-top: 40px;
     height: 600px;
     width: 400px;
     align-items: center;
@@ -51,7 +50,7 @@ input[type=submit]{
     }
     
     .label-input{
-        margin-top: 20px;
+        margin-top: 40px;
         
     }
 
