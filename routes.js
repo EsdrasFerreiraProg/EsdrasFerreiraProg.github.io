@@ -34,34 +34,42 @@ router.get("/css/style-listar-animais.css", (req, res)=>{
 
 });
 
-router.get("/cadastro-usuario", (req, res)=>{
+router.get("/", (req, res)=>{
+
+    res.sendFile(__dirname + '/index.html');
+
+})
+
+router.get("/login-usuario", (req, res)=>{
     
     res.sendFile(__dirname + '/index.html');
     
 });
 
+router.get("/cadastro-usuario", (req, res)=>{
+    res.sendFile(__dirname + '/cadastraUsuario.html');
+});
+
 router.get("/adotar", (req, res)=>{
-    console.log(__dirname);
+    
     res.sendFile(__dirname + '/adotarAnimal.html');
 })
 
 router.get("/cadastro-pet", (req, res)=>{
-    console.log(__dirname);
+    
     res.sendFile(__dirname + '/cadastraPet.html');
 })
 
 router.get("/cadastro-instituicao", (req, res)=>{
-    console.log(__dirname);
+    
     res.sendFile(__dirname + '/cadastraInstituicao.html');
 })
 
 router.get("/pagina-instituicao", (req, res)=>{
-    console.log(__dirname);
-    res.sendFile(__dirname + '/paginaInstitucional.html');
+    
+    res.sendFile(__dirname + '/listarAnimaisInstituicao.html');
 })
 
-router.get("/listar-animais", (req,res)=>{
-    res.sendFile(__dirname + "/listarAnimaisInstituicao.html");
-})
+
 
 module.exports = router;
