@@ -36,6 +36,13 @@ input[type=submit]{
     
 }
 
+a{
+    margin-left: -70px;
+    margin-top: 30px;
+    font-size: 12px;
+    
+}
+
 @media  screen and (max-width: 450px) {
     .form-institute-sign-up{
         margin-top: 50px;
