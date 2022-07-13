@@ -11,7 +11,7 @@ body{
     margin-right: 400px;
     margin-left: 450px;
     margin-top: 100px;
-    height: 130px;
+    height: 200px;
     flex-direction: column;
     vertical-align: middle;
     align-items: center;
@@ -22,9 +22,16 @@ body{
 .lista{
     margin-top: 10px;
 }
+
 .text{
-    margin-top: 50px;
+    margin-top: 80px;
     
+}
+.logout{
+    
+    margin-left: 430px;
+    
+
 }
 
 @media  screen and (max-width: 450px) {

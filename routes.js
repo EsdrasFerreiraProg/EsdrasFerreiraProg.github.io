@@ -36,21 +36,35 @@ router.get("/css/style-listar-animais.css", (req, res)=>{
 
 router.get("/", (req, res)=>{
 
-    res.sendFile(__dirname + '/index.html');
+    res.redirect('/login');
 
 })
 
-router.get("/login-usuario", (req, res)=>{
+const redirectLogin = (req, res, next)=>{
+    if(!req.session.user)
+        res.redirect('/login');
+    else
+        next();
+};
+
+const redirectHome = (req, res, next)=>{
+    if(req.session.user)
+        res.redirect('/pagina-instituicao');
+    else
+        next();
+};
+
+router.get("/login", redirectHome, (req, res)=>{
     
     res.sendFile(__dirname + '/index.html');
     
 });
 
-router.get("/cadastro-usuario", (req, res)=>{
+router.get("/cadastro-usuario", redirectHome, (req, res)=>{
     res.sendFile(__dirname + '/cadastraUsuario.html');
 });
 
-router.get("/adotar", (req, res)=>{
+router.get("/adotar", redirectLogin, (req, res)=>{
     
     res.sendFile(__dirname + '/adotarAnimal.html');
 })
@@ -60,16 +74,24 @@ router.get("/cadastro-pet", (req, res)=>{
     res.sendFile(__dirname + '/cadastraPet.html');
 })
 
-router.get("/cadastro-instituicao", (req, res)=>{
-    
+router.get("/cadastro-instituicao", redirectHome, (req, res)=>{
+
     res.sendFile(__dirname + '/cadastraInstituicao.html');
 })
 
-router.get("/pagina-instituicao", (req, res)=>{
-    
+router.get("/pagina-instituicao", redirectLogin, (req, res)=>{
+    console.log(req.session.user);
     res.sendFile(__dirname + '/listarAnimaisInstituicao.html');
 })
 
-
+router.get("/logout", redirectLogin, (req, res)=>{
+    req.session.destroy(err=>{
+        if (err)
+            return res.redirect('/pagina-instituicao')
+        else
+            res.clearCookie(session);
+            res.redirect("/login");
+    })
+})
 
 module.exports = router;
