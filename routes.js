@@ -80,7 +80,7 @@ router.get("/cadastro-instituicao", redirectHome, (req, res)=>{
 })
 
 router.get("/pagina-instituicao", redirectLogin, (req, res)=>{
-    console.log(req.session.user);
+    
     res.sendFile(__dirname + '/listarAnimaisInstituicao.html');
 })
 
@@ -89,7 +89,7 @@ router.get("/logout", redirectLogin, (req, res)=>{
         if (err)
             return res.redirect('/pagina-instituicao')
         else
-            res.clearCookie(session);
+            res.clearCookie(req.session);
             res.redirect("/login");
     })
 })

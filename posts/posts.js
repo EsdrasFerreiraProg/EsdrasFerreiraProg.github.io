@@ -62,16 +62,16 @@ async function whatType(usuario){
             });
         }else{
             
-            db.query("SELECT * FROM instituicoes WHERE rg = ?", usuario, (err, result)=>{
+            db.query("SELECT * FROM pessoas WHERE rg = ?", usuario, (err, result)=>{
 
                 resolve(result);
             });
         }
     
-    })
+    });
+
     return h;
 }
-
 
 
 router.post("/login", (req, res)=>{
@@ -93,7 +93,12 @@ router.post("/login", (req, res)=>{
                        
                         req.session.user = await whatType(usuario);
 
-                        res.redirect('/pagina-instituicao');
+                        console.log(JSON.stringify(req.session.user));
+                        if (usuario.length == 18)
+                            res.redirect('/pagina-instituicao');
+                        else
+                            
+                            res.redirect('/adotar');
 
                     }else{
                         res.send({message:"NOME OU USUARIO INCORRETOS!"});
