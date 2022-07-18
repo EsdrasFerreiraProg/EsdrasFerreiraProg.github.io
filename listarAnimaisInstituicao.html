@@ -9,15 +9,103 @@
 </head>
 <body>
     <section class="box">
-    <form>
+    <form method="POST" action="/deleta-animal-instituicao" class="form-inside-box">
         <label class="label" for="animais">Selecione o animal da lista</label>
-        <input class="lista" list="browsers" name="animais" id="animais">
-        <datalist id="browsers">
-          <option value="Cachorro">
-   
-        </datalist>
-        <input type="submit" value="Deletar animal">
         
+        <select onchange="update()" class="select-nao-adotados" id="animais-sem-dono">
+
+          <script>
+
+            async function getPetCNPJ(){
+                
+                let url = '/animais-instituicao';
+
+                try {
+                    let res = await fetch(url);
+                    
+                    return await res.json();
+
+                } catch (error) {
+                     console.log(error);
+                }
+            }
+
+            async function renderPetCNPJ() {
+
+              let register = await getPetCNPJ();
+              let htmlPiece = `<option value="">--Selecione--</option>`;
+              register.forEach((item)=>{
+                htmlPiece += `<option value=${item}>${item}</option>`;
+              });
+              let datalist = document.getElementById('animais-sem-dono');
+              datalist.innerHTML = htmlPiece;
+
+            }
+
+        renderPetCNPJ();
+            
+            async function update(){
+              
+              var select = document.getElementById('animais-sem-dono');
+              
+              try{
+                var option = select.options[select.selectedIndex].text;
+              }catch(e){
+
+              }
+              
+              document.getElementById("envia-o-texto").value = option;
+              
+              var htmlReturn = "";
+
+              const promiseBuscaAnimal = await new Promise((resolve)=>{
+                  
+                  if(option && option != "--Selecione--"){
+                  fetch("/mostra-animal-cnpj", {
+                  method: "POST",
+                  headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                  },
+
+                  body: JSON.stringify({
+
+                    nome: option,
+                    
+                  })
+
+                  })
+                  .then(response => response.json()
+                  .then(data => resolve(data))
+                    
+                  );
+                }
+                
+              })
+
+                const i = await new Promise((resolve)=>{
+
+                    htmlReturn += `<h2 class="animal-attrib">Nome: ${promiseBuscaAnimal[0]}</h2><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Sexo: ${promiseBuscaAnimal[1]}</h3><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Especie: ${promiseBuscaAnimal[2]}</h3><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Raça: ${promiseBuscaAnimal[3]}</h3><br>`
+                    
+                
+                    resolve(htmlReturn);
+              });
+                  
+           
+            let div = document.getElementById("mostrar-animal-nao-adotado");
+            div.innerHTML = htmlReturn;   
+          }
+
+        </script>
+        <input type="submit" value="Deletar animal">
+
+        <div class="mostrar-animal-nao-adotado" id="mostrar-animal-nao-adotado">
+
+        </div>
+        <input id="envia-o-texto" name="nome" value="" class="envia-o-texto" type="text">
       </form>
       <form action="/logout" method="GET">
         <a class = "logout" href = "/logout">Logout</a>

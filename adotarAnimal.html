@@ -7,29 +7,226 @@
     <link rel="stylesheet" href="css/style-adotar-animal.css">
     <title>Adote um animal!</title>
 </head>
+
 <body>
+  <div class="logout">
+    <a href="/logout">Logout</a>
+  </div>
+    <div class="background-adopt">
+      <h1 class="adopt-or-see">Bem vindo. Adote ou veja um animal adotado por você!</h1>
+    </div>
+    
     <section class="box">
-    <form>
+    <form method="POST" action="/adotar-animal">
         
         <br>
-        <label class="label-1" for="animais">Selecione um animal</label>
-        <input required="required" class="lista-1" list="browsers1" name="animais" id="animais">
-        <datalist id="browsers1">
+        <label class="label-1" for="animais">Animais disponíveis para adoção: </label>
+        
+        <select onchange="update()" class="select-nao-adotados" id="animais-sem-dono">
+          <script>
 
-          <option value="Cachorro">
-   
-        </datalist>
-        <input type="submit" value="Selecionar">
-      </form>
+            async function getPetSemDono(){
 
-      <div class="adopt-div">
-      <input class="adopt"type ="submit" value="Adotar">
+                let url = '/pets-para-adocao';
+
+                try {
+                    let res = await fetch(url);
+                    
+                    return await res.json();
+
+                } catch (error) {
+                     console.log(error);
+                }
+            }
+
+            async function renderPetsSemDono() {
+
+              let register = await getPetSemDono();
+              let htmlPiece = `<option value="">--Selecione--</option>`;
+              register.forEach((item)=>{
+                htmlPiece += `<option value=${item}>${item}</option>`;
+              });
+              let datalist = document.getElementById('animais-sem-dono');
+              datalist.innerHTML = htmlPiece;
+
+            }
+
+        renderPetsSemDono();
+            
+            async function update(){
+              
+              var select = document.getElementById('animais-sem-dono');
+              
+              
+              try{
+                var option = select.options[select.selectedIndex].text;
+              }catch(e){
+
+              }
+              
+              document.getElementById("envia-o-texto").value = option;
+              
+              var htmlReturn = "";
+
+              const promiseBuscaAnimal = await new Promise((resolve)=>{
+                  
+                  if(option && option != "--Selecione--"){
+                  fetch("/mostra-animal-nao-adotado", {
+                  method: "POST",
+                  headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                  },
+
+                  body: JSON.stringify({
+
+                    nomeAnimal: option,
+                    
+                  })
+
+                  })
+                  .then(response => response.json()
+                  .then(data => resolve(data))
+                    
+                  );
+                }
+                
+              })
+
+                const i = await new Promise((resolve)=>{
+                    htmlReturn += `<h2 class="animal-attrib">Nome: ${promiseBuscaAnimal[0]}</h2><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Sexo: ${promiseBuscaAnimal[1]}</h3><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Instituicao: ${promiseBuscaAnimal[2]}</h3><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Especie: ${promiseBuscaAnimal[3]}</h3><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Raça: ${promiseBuscaAnimal[4]}</h3><br>`
+                    htmlReturn += '<div class="adopt-div"><input class="adopt"type ="submit" value="Adotar"></div>';
+                
+                    resolve(htmlReturn);
+              });
+                  
+           
+            let div = document.getElementById("mostrar-animal-nao-adotado");
+            div.innerHTML = htmlReturn;   
+          }
+
+        </script>
+
+      </select>
+
+      
+      <div class="mostrar-animal" id="mostrar-animal-nao-adotado">
+
       </div>
+      <input name="nome" class="envia-o-texto" id="envia-o-texto" type="text"> 
 
-      <a href="cadastraPet.html" class="text"><strong>Clique aqui para cadastrar um animal novo </strong></section></body></html>
-    
+      
+      </form>
+      
     </section>
 
+    <form method="POST">
+    <section class = "second-box">
+      <label class="label-1" for="animais">Veja seus pets adotados</label>
+      
+      <select onchange="updateAdotado()" id="animais-adotados">
+        <script>
+
+          async function getPetComDono(){
+
+              let url = '/pets-com-dono';
+
+              try {
+                  let res = await fetch(url);
+                  
+                  return await res.json();
+
+              } catch (error) {
+                   console.log(error);
+              }
+          }
+
+          async function renderPetsComDono() {
+
+            let register = await getPetComDono();
+            let htmlPiece = `<option value="">--Selecione--</option>`;
+            register.forEach((item)=>{
+              htmlPiece += `<option value=${item}>${item}</option>`;
+            });
+
+            let datalist = document.getElementById('animais-adotados');
+            datalist.innerHTML = htmlPiece;
+            
+          }
+
+      renderPetsComDono();
+
+      async function updateAdotado(){
+              
+              var select = document.getElementById('animais-adotados');
+              
+              try{
+                var option = select.options[select.selectedIndex].text;
+              }catch(e){
+
+              }
+              
+              var htmlReturn = "";
+              console.log(option);
+              const promiseBuscaAnimal = await new Promise((resolve)=>{
+                  
+                  if(option && option != "--Selecione--"){
+                  fetch("/mostra-animal-adotado", {
+                  method: "POST",
+                  headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                  },
+
+                  body: JSON.stringify({
+
+                    nomeAnimal: option,
+                    
+                  })
+
+                  })
+                  .then(response => response.json()
+                  .then(data => resolve(data))
+                    
+                  );
+                }
+                
+              })
+
+                const i = await new Promise((resolve)=>{
+                    htmlReturn += `<h2 class="animal-attrib">Nome: ${promiseBuscaAnimal[0]}</h2><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Sexo: ${promiseBuscaAnimal[1]}</h3><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Especie: ${promiseBuscaAnimal[2]}</h3><br>`
+                    htmlReturn += `<h3 class="animal-attrib">Raça: ${promiseBuscaAnimal[3]}</h3><br>`
+                
+                    resolve(htmlReturn);
+              });
+                  
+           
+            let div = document.getElementById("mostrar-animal-adotado");
+            div.innerHTML = htmlReturn;   
+          }
+      </script>
+        
+    </select>
+      
+
+      <div class="mostrar-animal-adotado" id = "mostrar-animal-adotado">
+
+      </div>
+
+    </form>
+
+    <div class="adopt-div">
+    
+    </div>
+    
+    </section>
+    
     
 </body>
 </html>

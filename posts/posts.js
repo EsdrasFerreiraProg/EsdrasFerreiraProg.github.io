@@ -6,7 +6,13 @@ const router = express.Router();
 
 router.post('/form-cadastro-pet', async (req,res)=>{
     const {nome, especie, sexo, raca} = req.body;
-    
+    db.query("INSERT INTO petsemdono SET ?", {nome: nome, instcnpj: req.session.user[0].cnpj,
+    sexo: sexo, especie: especie, raca:raca}, (err, res)=>{
+        if (err)
+            console.log(err)
+        else
+            console.log("animal cadstrado")
+    })
     
     res.send("<a href='/pagina-instituicao'>Obrigado por cadastrar seu pet! Clique aqui para voltar para sua pagina</a>")
 });
@@ -93,11 +99,9 @@ router.post("/login", (req, res)=>{
                        
                         req.session.user = await whatType(usuario);
 
-                        console.log(JSON.stringify(req.session.user));
                         if (usuario.length == 18)
                             res.redirect('/pagina-instituicao');
                         else
-                            
                             res.redirect('/adotar');
 
                     }else{

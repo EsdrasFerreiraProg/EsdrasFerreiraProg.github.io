@@ -12,17 +12,18 @@
 <body>
 
     <form action="/form-cadastro-instituicao" method="POST" class="form-institute-sign-up">
-        <label class="label-input" for="cnpj">CNPJ</label>
+        
         <input name="cnpj" required="required" minlength="18" maxlength="18" type="text" id="cnpj"class="input-user" placeholder="Digite aqui seu CNPJ"><br>
-        <label class="label-input" for="senha">Senha</label>
-        <input name="senha"required="required" type="password" id="senha"class="input-user" placeholder="Digite aqui sua senha"> <br>
-        <label class="label-input" for="nome">Nome</label>
+        
+        <input minlength="6" name="senha"required="required" type="password" id="senha"class="input-user" placeholder="Digite aqui sua senha"> <br>
+        
         <input name="nome"required="required" type="text" id="nome"class="input-user" placeholder="Digite aqui o nome da sua empresa"><br>
-        <label class="label-input" for="endereco">Endereço</label>
+        
         <input name="endereco" required="required" type="text" id="endereco"class="input-user" placeholder="Digite aqui seu endereço completo"><br>
-        <label class="label-input" for="contato">Contato</label>
+        
         <input name="contato" required="required" type="text" id="contato"class="input-user" placeholder="Digite aqui ou e-mail ou telefone"><br><br>
         <input type="submit"  value="Enviar Cadastro">
+        
         <a href="/cadastro-usuario">Clique para cadastrar como um usuário não institucional</a>
     </form>
 

@@ -9,7 +9,7 @@ body{
     display:flex;
     margin-left: 500px;
     margin-top: 10px;
-    height: 700px;
+    height: 750px;
     width: 400px;
     align-items: center;
     flex-direction: column;
@@ -17,7 +17,6 @@ body{
     border-radius: 4px;
     
 }
-
 
 .label-input{
 
@@ -29,6 +28,11 @@ body{
 .input-user{
     width: 250px;
     font-size: 15px;
+    width: 250px;
+    margin-top: 40px;
+    padding: 10px;
+    border-color: purple;
+    border-radius: 4px;
 }
 
 input[type=submit]{
@@ -37,7 +41,7 @@ input[type=submit]{
     border-radius: 5px;
     color: black;
     margin-left: 200px;
-    margin-top: -0px;
+    margin-top: 0px;
     
 }
 

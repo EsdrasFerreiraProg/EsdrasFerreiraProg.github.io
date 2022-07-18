@@ -9,7 +9,7 @@ body{
     border: 2px solid red;
     border-radius: 4px;
     margin-right: 400px;
-    margin-left: 450px;
+    margin-left: 150px;
     margin-top: 100px;
     height: 500px;
     flex-direction: column;
@@ -19,6 +19,34 @@ body{
     
 }
 
+.second-box{
+    display: flex;
+    background-color: white;
+    border: 2px solid red;
+    border-radius: 4px;
+    margin-right: 400px;
+    margin-left: 700px;
+    margin-top: -504px;
+    height: 500px;
+    flex-direction: column;
+    vertical-align: middle;
+    align-items: center;
+    width: 500px;
+}
+
+.select-nao-adotados{
+    width: 100px;
+}
+
+.logout{
+   margin-bottom:-130px;
+   margin-top: 100px;
+   margin-left: 200px;
+
+}
+.selecionar-adotado{
+    margin-top: 10px;
+}
 .lista{
     margin-top: 10px;
     margin-bottom: 12px;
@@ -27,14 +55,48 @@ body{
     margin-top: 0px;
     
 }
+.mostrar-animal{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 200px;
+
+}
 
 .label{
     margin-left: -30px;
     
 }
-.adopt{
-    margin-top: 400px;
-    margin-left: 350px;
+
+.background-adopt{
+    display:flex;
+    background-color: purple;
+    margin-right: 300px;
+    border-radius: 4px;
+    border: 2px solid black;
+    text-shadow: 3px;
+    justify-content: center;
+    margin-left: 250px;
+    margin-top: 30px;
+    margin-bottom: -70px;
+}
+
+.adopt-or-see{
+    color: white;
+}
+
+.envia-o-texto{
+    display: none;
+}
+.animal-attrib{
+    border: 2px solid blue;
+    border-radius: 3px;
+}
+.mostrar-animal-adotado{
+    margin-right: 200px;
+}
+.adopt-div{
+    margin: 0px 100px 0px 0px;
 }
 
 @media  screen and (max-width: 450px) {

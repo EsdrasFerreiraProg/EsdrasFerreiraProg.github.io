@@ -24,14 +24,21 @@ body{
 
 .input-user{
     width: 250px;
+    margin-top: 40px;
+    padding: 10px;
+    border-color: green;
+    border-radius: 4px;
 }
 
 input[type=submit]{
+
     padding:10px;
     background-color: #67DB82;
     border-radius: 5px;
     color: black;
     margin-left: 200px;
+    margin-top: 70px;
+
 }
 
 @media screen and (max-width: 450px) {
